@@ -3,17 +3,15 @@ import {
   ChevronDown,
   ChevronUp,
   MapPin,
-  Calendar,
   ExternalLink,
   Mail,
   Download,
 } from "lucide-react";
 import { Button } from "../components/PortfolioTemplate1/Button";
-import { Card } from "../components/PortfolioTemplate1/Card";
-import { Avatar } from "../components/PortfolioTemplate1/Avatar";
-import { Separator } from "../components/PortfolioTemplate1/Seperator";
-import { Badge } from "../components/PortfolioTemplate1/Badge";
 import { profileData } from "../utils/SamplePortfolioData";
+import ExperienceCard from "../components/PortfolioTemplate1/ExperienceCard";
+import EducationCard from "../components/PortfolioTemplate1/EducationCard";
+import ProjectCard from "../components/PortfolioTemplate1/ProjectCard";
 
 const formatDescription = (
   description: string | null
@@ -62,10 +60,10 @@ export default function PortfolioTemplate1() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 pb-16">
         {/* Profile Card */}
-        <Card className="mb-8 shadow-lg">
+        <div className="bg-white rounded-lg mb-8 shadow-lg">
           <div className="p-6 sm:p-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <Avatar className="h-24 w-24 border-4 border-white shadow-md">
+              <div className="rounded-full overflow-hidden h-24 w-24 border-4 border-white shadow-md">
                 <div className="bg-emerald-100 text-emerald-800 font-bold text-2xl flex items-center justify-center h-full w-full">
                   {profileData.profile?.firstName
                     ? profileData.profile.firstName[0]
@@ -74,7 +72,7 @@ export default function PortfolioTemplate1() {
                     ? profileData.profile.lastName[0]
                     : "B"}
                 </div>
-              </Avatar>
+              </div>
 
               <div className="flex-1">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
@@ -113,7 +111,7 @@ export default function PortfolioTemplate1() {
               </div>
             </div>
 
-            {/* Summary */}
+            {/* About */}
             <div className="mt-6">
               <h2 className="text-lg font-semibold text-gray-900 mb-2">
                 About
@@ -125,7 +123,7 @@ export default function PortfolioTemplate1() {
               </div>
             </div>
           </div>
-        </Card>
+        </div>
 
         {/* Section renderer helper */}
         {["experience", "education", "projects", "skills"].map((sectionKey) => {
@@ -145,7 +143,7 @@ export default function PortfolioTemplate1() {
                   <ChevronDown className="h-5 w-5 text-gray-500" />
                 )}
               </div>
-              <Separator className="my-4" />
+              <hr className="border-t my-4" />
 
               {expandedSections[sectionKey] && (
                 <>
@@ -153,32 +151,7 @@ export default function PortfolioTemplate1() {
                     (profileData.positions?.length ? (
                       profileData.positions.map((position, i) => (
                         <div key={i} className="mb-6">
-                          <div className="flex gap-4 sm:flex-row flex-col">
-                            <div className="w-16 h-16 bg-emerald-100 rounded-md flex items-center justify-center text-emerald-700 font-semibold">
-                              {position.company?.slice(0, 2).toUpperCase() ||
-                                "CO"}
-                            </div>
-                            <div className="flex-1">
-                              <h3 className="text-lg font-semibold text-gray-900">
-                                {position.title || "Position Title"}
-                              </h3>
-                              <p className="text-gray-700">
-                                {position.company || "Company Name"}
-                              </p>
-                              <div className="flex items-center text-sm text-gray-500 mt-1">
-                                <Calendar className="h-4 w-4 mr-1" />
-                                <span>
-                                  {position.startDate || "Start Date"} -{" "}
-                                  {position.endDate || "End Date"}
-                                </span>
-                              </div>
-                              {position.description && (
-                                <div className="mt-3 text-gray-600">
-                                  {formatDescription(position.description)}
-                                </div>
-                              )}
-                            </div>
-                          </div>
+                          <ExperienceCard position={position} />
                         </div>
                       ))
                     ) : (
@@ -189,29 +162,7 @@ export default function PortfolioTemplate1() {
                     (profileData.education?.length ? (
                       profileData.education.map((edu, i) => (
                         <div key={i} className="mb-6">
-                          <div className="flex gap-4 sm:flex-row flex-col">
-                            <div className="w-16 h-16 bg-emerald-100 rounded-md flex items-center justify-center text-emerald-700 font-semibold">
-                              {edu.school?.slice(0, 2).toUpperCase() || "SC"}
-                            </div>
-                            <div className="flex-1">
-                              <h3 className="text-lg font-semibold text-gray-900">
-                                {edu.degree || "Degree"}
-                              </h3>
-                              <p className="text-gray-700">
-                                {edu.school || "School Name"}
-                              </p>
-                              <p className="text-gray-600">
-                                {edu.fieldOfStudy || "Field of Study"}
-                              </p>
-                              <div className="flex items-center text-sm text-gray-500 mt-1">
-                                <Calendar className="h-4 w-4 mr-1" />
-                                <span>
-                                  {edu.startDate || "Start Date"} -{" "}
-                                  {edu.endDate || "End Date"}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
+                          <EducationCard edu={edu} />
                         </div>
                       ))
                     ) : (
@@ -222,25 +173,12 @@ export default function PortfolioTemplate1() {
                     <div className="grid grid-cols-1 gap-6">
                       {profileData.projects?.length ? (
                         profileData.projects.map((project, i) => (
-                          <Card
+                          <div
                             key={i}
-                            className="p-6 hover:shadow-md transition-shadow duration-300"
+                            className="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow duration-300"
                           >
-                            <div className="flex justify-between items-start">
-                              <h3 className="text-lg font-semibold text-gray-900">
-                                {project.name || "Project Name"}
-                              </h3>
-                              <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200">
-                                {project.endDate || "Ongoing"}
-                              </Badge>
-                            </div>
-                            <div className="mt-3 text-gray-600">
-                              {formatDescription(
-                                project.description ||
-                                  "No description available"
-                              )}
-                            </div>
-                          </Card>
+                            <ProjectCard project={project} />
+                          </div>
                         ))
                       ) : (
                         <p className="text-gray-500">No projects available</p>
@@ -263,12 +201,12 @@ export default function PortfolioTemplate1() {
                             "DevOps",
                           ]
                       ).map((skill, i) => (
-                        <Badge
+                        <span
                           key={i}
-                          className="bg-emerald-100 text-emerald-800 hover:bg-emerald-200 transition-colors py-1.5 px-3 text-sm capitalize"
+                          className="inline-block rounded-full font-semibold bg-emerald-100 text-emerald-800 hover:bg-emerald-200 transition-colors py-1.5 px-3 text-sm capitalize"
                         >
                           {skill}
-                        </Badge>
+                        </span>
                       ))}
                     </div>
                   )}
