@@ -1,4 +1,4 @@
-interface Position {
+export interface Position {
   title?: string;
   company?: string;
   startDate?: string;
@@ -6,7 +6,7 @@ interface Position {
   description?: string | null;
 }
 
-interface Education {
+export interface Education {
   school?: string;
   degree?: string;
   fieldOfStudy?: string;
@@ -14,14 +14,14 @@ interface Education {
   endDate?: string;
 }
 
-interface Project {
+export interface Project {
   name?: string;
   description?: string;
   startDate?: string | null;
   endDate?: string;
 }
 
-interface Profile {
+export interface Profile {
   firstName?: string;
   lastName?: string;
   headline?: string;
@@ -49,7 +49,7 @@ interface Profile {
   };
 }
 
-interface ResumeData {
+export interface ResumeData {
   entityUrn: string;
   profile?: Profile;
   positions?: Position[];
