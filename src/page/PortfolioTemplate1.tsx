@@ -12,6 +12,8 @@ import { profileData } from "../utils/SamplePortfolioData";
 import ExperienceCard from "../components/PortfolioTemplate1/ExperienceCard";
 import EducationCard from "../components/PortfolioTemplate1/EducationCard";
 import ProjectCard from "../components/PortfolioTemplate1/ProjectCard";
+import Band from "../components/Band";
+import Watermark from "../components/Watermark";
 
 const formatDescription = (
   description: string | null
@@ -43,6 +45,10 @@ export default function PortfolioTemplate1() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <div className="fixed z-20 top-10 -right-10">
+        <Band color="bg-green-600" />
+      </div>
+      <Watermark />
       {/* Header */}
       <div
         className="h-40 bg-cover bg-center relative"
@@ -75,7 +81,7 @@ export default function PortfolioTemplate1() {
               </div>
 
               <div className="flex-1">
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
                   {profileData.profile?.firstName || "First Name"}{" "}
                   {profileData.profile?.lastName || "Last Name"}
                 </h1>

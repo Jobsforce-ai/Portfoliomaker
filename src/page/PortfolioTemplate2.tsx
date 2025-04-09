@@ -13,6 +13,8 @@ import AboutCard from "../components/PortfolioTemplate2/AboutCard";
 import EducationCard from "../components/PortfolioTemplate2/EducationCard";
 import ProjectCard from "../components/PortfolioTemplate2/ProjectCard";
 import Footer from "../components/PortfolioTemplate2/Footer";
+import Band from "../components/Band";
+import Watermark from "../components/Watermark";
 
 export default function PortfolioTemplate2(): JSX.Element {
   const [activeSection, setActiveSection] = useState<string>("about");
@@ -67,16 +69,14 @@ export default function PortfolioTemplate2(): JSX.Element {
 
   return (
     <div className="min-h-screen bg-gray-950 text-gray-200">
+      <div className="fixed z-30 top-10 -right-10">
+        <Band color="bg-purple-600" />
+      </div>
+      <Watermark />
       {/* Fixed Navigation */}
-      <nav className="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md z-50 border-b border-purple-900/30">
+      <nav className="hidden md:block fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md z-20 border-b border-purple-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
-                {profileData.profile?.firstName || "First"}{" "}
-                {profileData.profile?.lastName || "Last"}
-              </span>
-            </div>
+          <div className="flex justify-center gap-20 items-center h-16">
             <div className="hidden md:flex space-x-8">
               {Object.keys(sectionRefs).map((section) => (
                 <button
@@ -91,16 +91,6 @@ export default function PortfolioTemplate2(): JSX.Element {
                   {section}
                 </button>
               ))}
-            </div>
-            <div className="flex items-center space-x-4">
-              <button className="p-2 rounded-full bg-purple-600 hover:bg-purple-700 transition-colors duration-300">
-                <Mail className="h-5 w-5" />
-                <span className="sr-only">Contact</span>
-              </button>
-              <button className="p-2 rounded-full bg-purple-600 hover:bg-purple-700 transition-colors duration-300">
-                <Download className="h-5 w-5" />
-                <span className="sr-only">Download Resume</span>
-              </button>
             </div>
           </div>
         </div>
@@ -172,6 +162,16 @@ export default function PortfolioTemplate2(): JSX.Element {
                   <Twitter className="h-4 w-4 text-purple-400" />
                   <span>Twitter</span>
                 </a>
+                <div className="flex items-center space-x-4">
+                  <button className="p-2 rounded-full bg-purple-600 hover:bg-purple-700 transition-colors duration-300">
+                    <Mail className="h-5 w-5" />
+                    <span className="sr-only">Contact</span>
+                  </button>
+                  <button className="p-2 rounded-full bg-purple-600 hover:bg-purple-700 transition-colors duration-300">
+                    <Download className="h-5 w-5" />
+                    <span className="sr-only">Download Resume</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
