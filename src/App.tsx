@@ -24,7 +24,7 @@ function App() {
           />
           <Route path="/cloud/userid" element={<h1>Home</h1>} />
           <Route path="/classic" element={<Classic/>}/>
-          <Route path="/template1/userid" element={<Template1 />} />
+          <Route path="/template3/userid" element={<Template1 />} />
         </Routes>
       </BrowserRouter>
     </>

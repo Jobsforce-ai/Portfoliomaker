@@ -1,12 +1,12 @@
 
 import { motion } from 'framer-motion';
-import Hero from '../components/PortfolioTemplate1/Hero';
-import Navbar from '../components/PortfolioTemplate1/Navbar';
-import InfiniteScroll from '../components/PortfolioTemplate1/InfiniteScroll';
-import WorkExperience from '../components/PortfolioTemplate1/WorkExperience.';
-import PersonalInfo from '../components/PortfolioTemplate1/PersonalInfo';
-import Footer from '../components/PortfolioTemplate1/Footer';
-import Projects from '../components/PortfolioTemplate1/Projects';
+import Hero from '../components/PortfolioTemplate3/Hero';
+import Navbar from '../components/PortfolioTemplate3/Navbar';
+import InfiniteScroll from '../components/PortfolioTemplate3/InfiniteScroll';
+import WorkExperience from '../components/PortfolioTemplate3/WorkExperience.';
+import PersonalInfo from '../components/PortfolioTemplate3/PersonalInfo';
+import Footer from '../components/PortfolioTemplate3/Footer';
+import Projects from '../components/PortfolioTemplate3/Projects';
 
 
 function Template1() {
