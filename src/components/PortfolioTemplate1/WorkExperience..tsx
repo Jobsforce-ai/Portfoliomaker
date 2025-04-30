@@ -1,0 +1,59 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const WorkExperience = () => {
+  const experiences = [
+    {
+      company: 'JobsForce.ai',
+      position: 'Intern',
+      period: 'April 2025 - Present',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse'
+    },
+    {
+      company: 'LinkedIn',
+      position: 'Intern',
+      period: 'Jan 2025 - April 2025',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse'
+    }
+  ];
+
+  return (
+    <section id="experience" className="py-20 px-4">
+      <div className="container mx-auto">
+        <motion.h2 
+          className="text-3xl font-bold mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          Work Experience
+        </motion.h2>
+        
+        <div className="space-y-10">
+          {experiences.map((exp, index) => (
+            <motion.div 
+              key={index} 
+              className="p-6 bg-[#1a1a1a] rounded-lg"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex flex-col md:flex-row md:justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-semibold">{exp.company}</h3>
+                  <p className="text-gray-400">{exp.position}</p>
+                </div>
+                <p className="text-gray-400 mt-2 md:mt-0">{exp.period}</p>
+              </div>
+              <p className="text-gray-300">{exp.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default WorkExperience;
