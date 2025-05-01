@@ -1,21 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { profileData } from '@/utils/SamplePortfolioData'; 
 
 const WorkExperience = () => {
-  const experiences = [
-    {
-      company: 'JobsForce.ai',
-      position: 'Intern',
-      period: 'April 2025 - Present',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse'
-    },
-    {
-      company: 'LinkedIn',
-      position: 'Intern',
-      period: 'Jan 2025 - April 2025',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse'
-    }
-  ];
+  const experiences = profileData.positions || [];
 
   return (
     <section id="experience" className="py-20 px-4">
@@ -42,12 +30,14 @@ const WorkExperience = () => {
             >
               <div className="flex flex-col md:flex-row md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-semibold">{exp.company}</h3>
-                  <p className="text-gray-400">{exp.position}</p>
+                  <h3 className="text-xl font-semibold">{exp.company || 'Unknown Company'}</h3>
+                  <p className="text-gray-400">{exp.title || 'Unknown Position'}</p>
                 </div>
-                <p className="text-gray-400 mt-2 md:mt-0">{exp.period}</p>
+                <p className="text-gray-400 mt-2 md:mt-0">
+                  {exp.startDate || 'N/A'} - {exp.endDate || 'Present'}
+                </p>
               </div>
-              <p className="text-gray-300">{exp.description}</p>
+              <p className="text-gray-300">{exp.description || 'No description available.'}</p>
             </motion.div>
           ))}
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -77,7 +77,7 @@ const Hero = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <motion.a
+          {/* <motion.a
             href="#resume"
             className="inline-flex items-center px-6 py-3 rounded-lg bg-[#222222] hover:bg-[#333333] transition-all text-white font-medium"
             whileHover={{ scale: 1.05 }}
@@ -87,7 +87,7 @@ const Hero = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             Download Resume
-          </motion.a>
+          </motion.a> */}
         </motion.div>
       </div>
     </section>

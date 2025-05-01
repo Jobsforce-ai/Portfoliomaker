@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { profileData } from '@/utils/SamplePortfolioData';
 
 const PersonalInfo = () => {
-    const skills = ['React', 'React Native', 'Angular', 'Figma', 'Adobe XD', 'MongoDB'];
+    const skills = profileData.skills || ['React', 'React Native', 'Angular', 'Figma', 'Adobe XD', 'MongoDB'];
 
     return (
         <section className="py-20 px-4">
@@ -29,7 +30,7 @@ const PersonalInfo = () => {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         viewport={{ once: true }}
                     >
-                        John Doe
+                        {profileData.profile?.firstName}
                     </motion.h2>
 
                     <motion.h2
@@ -39,7 +40,7 @@ const PersonalInfo = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        Full Stack Dev
+                        {profileData.profile?.headline || "Full Stack Dev"}
                     </motion.h2>
 
                     <motion.p
@@ -49,7 +50,8 @@ const PersonalInfo = () => {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         viewport={{ once: true }}
                     >
-                        Hi, I'm John Doe, a front-end developer with a passion for crafting user-friendly and visually appealing web applications. I specialize in HTML, CSS, JavaScript, React, Angular, etc. and enjoy translating design concepts into functional and engaging user interfaces.
+                        {profileData.profile?.summary ||
+                            "Hi, I'm John Doe, a front-end developer with a passion for crafting user-friendly and visually appealing web applications. I specialize in HTML, CSS, JavaScript, React, Angular, etc. and enjoy translating design concepts into functional and engaging user interfaces."}
                     </motion.p>
 
                     <motion.div
