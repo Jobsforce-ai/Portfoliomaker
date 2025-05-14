@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
-  const [isAuthorized, setIsAuthorized] = useState(Boolean);
+  const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const params = useParams();
@@ -40,7 +40,7 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
         const data = await response.json();
 
         // Check if the user is authorized based on API response
-        setIsAuthorized(data.isAuthorized || false);
+        if (data.profileData) setIsAuthorized(true);
       } catch (err: any) {
         console.error("Authorization check failed:", err);
         setError(err.message);
