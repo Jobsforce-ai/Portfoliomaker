@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cloud/userid" element={<h1>cloud userid page</h1>} />
           <Route
-            path="/modern/:userid"
+            path="/Nova/:userid"
             element={
               <AuthWrapper>
                 <PortfolioTemplate1 />
