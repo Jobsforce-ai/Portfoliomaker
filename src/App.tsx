@@ -4,7 +4,6 @@ import PortfolioTemplate2 from "./page/PortfolioTemplate2";
 import Home from "./page/Home";
 import Classic from "./pages/Classic";
 import "./App.css"
-import Template1 from "./page/PortfolioTemplate3";
 import PortfolioTemplate4 from "./page/PortfolioTemplate4";
 import PortfolioTemplate3 from "./page/PortfolioTemplate3";
 
