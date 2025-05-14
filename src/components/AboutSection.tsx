@@ -2,7 +2,7 @@
 // import { useEffect, useState } from "react";
 
 // import useSWR from "swr";
-import { profileData } from "@/utils/samplePortfolioData"
+import { profileData } from "@/utils/SamplePortfolioData"
 
 type AboutSectionProps = {
     summary: string;

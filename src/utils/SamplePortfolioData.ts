@@ -6,12 +6,12 @@ export interface Position {
   description: string | null;
 }
 
-interface Education {
-  school?: string;
-  degree?: string;
-  fieldOfStudy?: string;
-  startDate?: string;
-  endDate?: string;
+export interface Education {
+  school: string;
+  degree: string;
+  fieldOfStudy: string;
+  startDate: string;
+  endDate: string;
 }
 
 export interface Project {
@@ -21,36 +21,12 @@ export interface Project {
   endDate: string;
 }
 
-interface Profile {
-  firstName?: string;
-  lastName?: string;
-  headline?: string;
-  summary?: string;
-  industryName?: string;
-  location?: {
-    basicLocation?: {
-      countryCode?: string;
-    };
-  };
-  geoCountry?: any;
-  miniProfile?: {
-    firstName?: string;
-    lastName?: string;
-    occupation?: string;
-    publicIdentifier?: string;
-    profileImage?: string | null;
-    backgroundImage?: {
-      "com.linkedin.common.VectorImage"?: {
-        artifacts?: Array<{
-          width?: number;
-          fileIdentifyingUrlPathSegment?: string;
-          expiresAt?: number;
-          height?: number;
-        }>;
-        rootUrl?: string;
-      };
-    };
-  };
+export interface BasicLocation {
+  countryCode: string;
+}
+
+export interface Location {
+  basicLocation: BasicLocation;
 }
 
 export interface ResumeData {
@@ -62,20 +38,40 @@ export interface ResumeData {
     summary: string;
     industryName: string;
     location: Location;
+    geoCountry: any;
     miniProfile: {
       firstName: string;
       lastName: string;
       occupation: string;
       publicIdentifier: string;
       profileImage: string | null;
-      backgroundImage: any;
+      backgroundImage: {
+        "com.linkedin.common.VectorImage": {
+          artifacts: {
+            width: number;
+            height: number;
+            fileIdentifyingUrlPathSegment: string;
+            expiresAt: number;
+          }[];
+          rootUrl: string;
+        };
+      };
     };
   };
   positions: Position[];
   education: Education[];
   projects: Project[];
   skills: string[];
+  certifications?: any[];
+  publications?: any[];
+  languages?: any[];
+  testScores?: any[];
+  honors?: any[];
+  courses?: any[];
+  volunteerExperiences?: any[];
 }
+
+
 
 export const profileData: ResumeData = {
   entityUrn: "urn:li:fs_profileView:ACoAADfHwC4Bl0nDz9Dw-hRGn_7K-kWY4SRHMRY",

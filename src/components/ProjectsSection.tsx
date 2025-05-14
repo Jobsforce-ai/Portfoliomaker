@@ -1,5 +1,5 @@
-import ProjectCard from "./ProjectCard"
-import { profileData } from "@/utils/samplePortfolioData"
+// import ProjectCard from "./ProjectCard"
+// import { profileData } from "@/utils/SamplePortfolioData"
 
 function ProjectsSection() {
   

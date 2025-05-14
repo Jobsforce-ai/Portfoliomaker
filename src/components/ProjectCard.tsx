@@ -1,4 +1,4 @@
-import {Project} from "../utils/samplePortfolioData";
+import {Project} from "../utils/SamplePortfolioData";
 
 type ProjectCardProps = {
     project: Project
