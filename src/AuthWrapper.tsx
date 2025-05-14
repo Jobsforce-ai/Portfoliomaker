@@ -40,7 +40,7 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
         const data = await response.json();
 
         // Check if the user is authorized based on API response
-        setIsAuthorized(data.isAuthorized || false);
+        if (data.profileData) setIsAuthorized(true);
       } catch (err: any) {
         console.error("Authorization check failed:", err);
         setError(err.message);
