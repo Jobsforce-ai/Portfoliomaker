@@ -71,8 +71,6 @@ export interface ResumeData {
   volunteerExperiences?: any[];
 }
 
-
-
 export const profileData: ResumeData = {
   entityUrn: "urn:li:fs_profileView:ACoAADfHwC4Bl0nDz9Dw-hRGn_7K-kWY4SRHMRY",
   profile: {

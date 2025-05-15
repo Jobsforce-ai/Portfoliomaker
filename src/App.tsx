@@ -24,7 +24,7 @@ function App() {
             }
           />
           <Route
-            path="/creative/:userid"
+            path="/core/:userid"
             element={
               <AuthWrapper>
                 <PortfolioTemplate2 />
@@ -34,7 +34,7 @@ function App() {
           <Route path="/cloud/userid" element={<h1>Home</h1>} />
           <Route path="/classic" element={<Classic />} />
           <Route
-            path="/professional/:userid"
+            path="/flux/:userid"
             element={
               <AuthWrapper>
                 <PortfolioTemplate3 />
@@ -42,7 +42,7 @@ function App() {
             }
           />
           <Route
-            path="/tech/:userid"
+            path="/bolt/:userid"
             element={
               <AuthWrapper>
                 <PortfolioTemplate4 />
