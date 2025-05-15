@@ -1,19 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PortfolioTemplate1 from "./page/PortfolioTemplate1";
 import PortfolioTemplate2 from "./page/PortfolioTemplate2";
-import Home from "./page/Home";
 import Classic from "./pages/Classic";
 import "./App.css";
 import PortfolioTemplate4 from "./page/PortfolioTemplate4";
 import PortfolioTemplate3 from "./page/PortfolioTemplate3";
 import AuthWrapper from "./AuthWrapper";
+import WelcomePage from "./page/WelcomePage";
+import NotFound from "./page/NotFound";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<WelcomePage />} />
           <Route path="/cloud/userid" element={<h1>cloud userid page</h1>} />
           <Route
             path="/Nova/:userid"
@@ -24,17 +25,16 @@ function App() {
             }
           />
           <Route
-            path="/creative/:userid"
+            path="/core/:userid"
             element={
               <AuthWrapper>
                 <PortfolioTemplate2 />
               </AuthWrapper>
             }
           />
-          <Route path="/cloud/userid" element={<h1>Home</h1>} />
           <Route path="/classic" element={<Classic />} />
           <Route
-            path="/professional/:userid"
+            path="/flux/:userid"
             element={
               <AuthWrapper>
                 <PortfolioTemplate3 />
@@ -42,13 +42,15 @@ function App() {
             }
           />
           <Route
-            path="/tech/:userid"
+            path="/bolt/:userid"
             element={
               <AuthWrapper>
                 <PortfolioTemplate4 />
               </AuthWrapper>
             }
           />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>
