@@ -13,6 +13,7 @@ import EducationCard from "../components/PortfolioTemplate1/EducationCard";
 import ProjectCard from "../components/PortfolioTemplate1/ProjectCard";
 import Band from "../components/Band";
 import Watermark from "../components/Watermark";
+import { useParams } from "react-router-dom";
 
 const formatDescription = (
   description: string | null
@@ -27,6 +28,7 @@ const formatDescription = (
 
 export default function PortfolioTemplate1() {
   const [profileData, setProfileData] = useState<any>();
+  const { userid } = useParams();
   const [expandedSections, setExpandedSections] = useState<
     Record<string, boolean>
   >({
@@ -39,7 +41,7 @@ export default function PortfolioTemplate1() {
   useEffect(() => {
     const fetchProfile = async () => {
       const response = await fetch(
-        `https://api.jobsforce.ai/api/portfolio/Nova/abhi-apple`,
+        `https://api.jobsforce.ai/api/portfolio/Nova/${userid}`,
         {
           method: "GET",
           headers: {

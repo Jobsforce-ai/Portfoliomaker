@@ -6,14 +6,16 @@ import Skills from "@/components/PortfolioTemplate4/Skills";
 import SparkleBackground from "@/components/PortfolioTemplate4/SparkleBackground";
 import { ThemeProvider } from "@/components/PortfolioTemplate4/ThemeProvider";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const PortfolioTemplate4 = () => {
   const [profileData, setProfileData] = useState<any>();
+  const { userid } = useParams();
 
   useEffect(() => {
     const fetchProfile = async () => {
       const response = await fetch(
-        `https://api.jobsforce.ai/api/portfolio/Nova/abhi-apple`,
+        `https://api.jobsforce.ai/api/portfolio/Nova/${userid}`,
         {
           method: "GET",
           headers: {

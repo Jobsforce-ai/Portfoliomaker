@@ -6,14 +6,16 @@ import PersonalInfo from "../components/PortfolioTemplate3/PersonalInfo";
 import Footer from "../components/PortfolioTemplate3/Footer";
 import Projects from "../components/PortfolioTemplate3/Projects";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function PortfolioTemplate3() {
   const [profileData, setProfileData] = useState<any>();
+  const { userid } = useParams();
 
   useEffect(() => {
     const fetchProfile = async () => {
       const response = await fetch(
-        `https://api.jobsforce.ai/api/portfolio/Nova/abhi-apple`,
+        `https://api.jobsforce.ai/api/portfolio/Nova/${userid}`,
         {
           method: "GET",
           headers: {

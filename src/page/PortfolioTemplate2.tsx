@@ -14,11 +14,13 @@ import ProjectCard from "../components/PortfolioTemplate2/ProjectCard";
 import Footer from "../components/PortfolioTemplate2/Footer";
 import Band from "../components/Band";
 import Watermark from "../components/Watermark";
+import { useParams } from "react-router-dom";
 
 export default function PortfolioTemplate2(): JSX.Element {
   const [activeSection, setActiveSection] = useState<string>("about");
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
   const [profileData, setProfileData] = useState<any>();
+  const { userid } = useParams();
 
   const aboutRef = useRef<HTMLElement | null>(null);
   const experienceRef = useRef<HTMLElement | null>(null);
@@ -37,7 +39,7 @@ export default function PortfolioTemplate2(): JSX.Element {
   useEffect(() => {
     const fetchProfile = async () => {
       const response = await fetch(
-        `https://api.jobsforce.ai/api/portfolio/Nova/abhi-apple`,
+        `https://api.jobsforce.ai/api/portfolio/Nova/${userid}`,
         {
           method: "GET",
           headers: {
