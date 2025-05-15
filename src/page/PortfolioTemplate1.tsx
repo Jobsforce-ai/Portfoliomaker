@@ -14,6 +14,7 @@ import ProjectCard from "../components/PortfolioTemplate1/ProjectCard";
 import Band from "../components/Band";
 import Watermark from "../components/Watermark";
 import { useParams } from "react-router-dom";
+import { ResumeData } from "@/utils/SamplePortfolioData";
 
 const formatDescription = (
   description: string | null
@@ -27,7 +28,7 @@ const formatDescription = (
 };
 
 export default function PortfolioTemplate1() {
-  const [profileData, setProfileData] = useState<any>();
+  const [profileData, setProfileData] = useState<ResumeData>();
   const { userid } = useParams();
   const [expandedSections, setExpandedSections] = useState<
     Record<string, boolean>

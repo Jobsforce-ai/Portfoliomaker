@@ -7,9 +7,10 @@ import Footer from "../components/PortfolioTemplate3/Footer";
 import Projects from "../components/PortfolioTemplate3/Projects";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ResumeData } from "@/utils/SamplePortfolioData";
 
 function PortfolioTemplate3() {
-  const [profileData, setProfileData] = useState<any>();
+  const [profileData, setProfileData] = useState<ResumeData>();
   const { userid } = useParams();
 
   useEffect(() => {

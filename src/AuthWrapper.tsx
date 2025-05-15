@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import NotFound from "./page/NotFound";
 
 const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
   const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null); Make use of this later maybe
   const params = useParams();
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -44,7 +43,7 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
         if (data.profileData) setIsAuthorized(true);
       } catch (err: any) {
         console.error("Authorization check failed:", err);
-        setError(err.message);
+        // setError(err.message);
         setIsAuthorized(false);
       } finally {
         setIsLoading(false);
@@ -56,11 +55,11 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="text-center p-8 bg-white rounded-lg shadow-md">
-          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <h2 className="text-xl font-semibold text-gray-700">Loading...</h2>
-          <p className="text-gray-500 mt-2">
+      <div className="flex items-center justify-center h-screen bg-gray-950">
+        <div className="text-center p-8 bg-gray-900/80 border border-gray-800 rounded-xl shadow-xl backdrop-blur-sm">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+          <h2 className="text-2xl font-bold text-white">Loading...</h2>
+          <p className="text-gray-400 mt-2">
             Please wait while we verify your access.
           </p>
         </div>

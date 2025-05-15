@@ -1,6 +1,11 @@
+import { ResumeData } from "@/utils/SamplePortfolioData";
 import { motion } from "framer-motion";
 
-const Projects = ({ profileData }) => {
+interface ProjectsProps {
+  profileData: ResumeData;
+}
+
+const Projects = ({ profileData }: ProjectsProps) => {
   const projects = profileData.projects || [];
 
   const gradients = [

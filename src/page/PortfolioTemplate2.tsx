@@ -15,11 +15,12 @@ import Footer from "../components/PortfolioTemplate2/Footer";
 import Band from "../components/Band";
 import Watermark from "../components/Watermark";
 import { useParams } from "react-router-dom";
+import { ResumeData } from "@/utils/SamplePortfolioData";
 
 export default function PortfolioTemplate2(): JSX.Element {
   const [activeSection, setActiveSection] = useState<string>("about");
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
-  const [profileData, setProfileData] = useState<any>();
+  const [profileData, setProfileData] = useState<ResumeData>();
   const { userid } = useParams();
 
   const aboutRef = useRef<HTMLElement | null>(null);

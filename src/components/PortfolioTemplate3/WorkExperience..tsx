@@ -1,6 +1,11 @@
+import { ResumeData } from "@/utils/SamplePortfolioData";
 import { motion } from "framer-motion";
 
-const WorkExperience = ({ profileData }) => {
+interface WorkExperienceProps {
+  profileData: ResumeData;
+}
+
+const WorkExperience = ({ profileData }: WorkExperienceProps) => {
   const experiences = profileData.positions || [];
 
   return (

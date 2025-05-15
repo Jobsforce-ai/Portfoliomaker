@@ -1,6 +1,11 @@
+import { ResumeData } from "@/utils/SamplePortfolioData";
 import { motion } from "framer-motion";
 
-const PersonalInfo = ({ profileData }) => {
+interface PersonalInfoProps {
+  profileData: ResumeData;
+}
+
+const PersonalInfo = ({ profileData }: PersonalInfoProps) => {
   const skills = profileData.skills || [
     "React",
     "React Native",

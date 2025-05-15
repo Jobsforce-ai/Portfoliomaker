@@ -7,9 +7,10 @@ import SparkleBackground from "@/components/PortfolioTemplate4/SparkleBackground
 import { ThemeProvider } from "@/components/PortfolioTemplate4/ThemeProvider";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ResumeData } from "@/utils/SamplePortfolioData";
 
 const PortfolioTemplate4 = () => {
-  const [profileData, setProfileData] = useState<any>();
+  const [profileData, setProfileData] = useState<ResumeData>();
   const { userid } = useParams();
 
   useEffect(() => {
