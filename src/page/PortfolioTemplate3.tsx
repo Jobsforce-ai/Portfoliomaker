@@ -16,7 +16,7 @@ function PortfolioTemplate3() {
   useEffect(() => {
     const fetchProfile = async () => {
       const response = await fetch(
-        `https://api.jobsforce.ai/api/portfolio/Nova/${userid}`,
+        `https://api.jobsforce.ai/api/portfolio/flux/${userid}`,
         {
           method: "GET",
           headers: {

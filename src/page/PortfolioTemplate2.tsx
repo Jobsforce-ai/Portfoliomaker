@@ -40,7 +40,7 @@ export default function PortfolioTemplate2(): JSX.Element {
   useEffect(() => {
     const fetchProfile = async () => {
       const response = await fetch(
-        `https://api.jobsforce.ai/api/portfolio/Nova/${userid}`,
+        `https://api.jobsforce.ai/api/portfolio/core/${userid}`,
         {
           method: "GET",
           headers: {
