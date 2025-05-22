@@ -29,7 +29,7 @@ const formatDescription = (
 
 export default function PortfolioTemplate1() {
   const [profileData, setProfileData] = useState<ResumeData>();
-  const { userid } = useParams();
+  const { userId, theme } = useParams();
   const [expandedSections, setExpandedSections] = useState<
     Record<string, boolean>
   >({
@@ -42,7 +42,7 @@ export default function PortfolioTemplate1() {
   useEffect(() => {
     const fetchProfile = async () => {
       const response = await fetch(
-        `https://api.jobsforce.ai/api/portfolio/Nova/${userid}`,
+        `https://api.jobsforce.ai/api/portfolio/${theme}/${userId}`,
         {
           method: "GET",
           headers: {
