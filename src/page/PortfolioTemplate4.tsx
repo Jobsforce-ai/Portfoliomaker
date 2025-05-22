@@ -11,12 +11,12 @@ import { ResumeData } from "@/utils/SamplePortfolioData";
 
 const PortfolioTemplate4 = () => {
   const [profileData, setProfileData] = useState<ResumeData>();
-  const { userId, theme } = useParams();
+  const { userid } = useParams();
 
   useEffect(() => {
     const fetchProfile = async () => {
       const response = await fetch(
-        `https://api.jobsforce.ai/api/portfolio/${theme}/${userId}`,
+        `https://api.jobsforce.ai/api/portfolio/Nova/${userid}`,
         {
           method: "GET",
           headers: {
